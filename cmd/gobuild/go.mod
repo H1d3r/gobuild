@@ -5,7 +5,7 @@ go 1.27.0
 require (
 	github.com/caixw/gobuild v1.8.6
 	github.com/goccy/go-yaml v1.19.2
-	github.com/issue9/cmdopt v0.14.0
+	github.com/issue9/cmdopt v0.15.0
 	github.com/issue9/localeutil v0.34.0
 	golang.org/x/text v0.41.0
 )

@@ -26,8 +26,9 @@ jobs:
     - name: release
       uses: goreleaser/goreleaser-action@v7
       with:
+        distribution: goreleaser
         workdir: ./cmd/gobuild
-        version: latest
-        args: release
+        version: '~> v2'
+        args: release --clean
       env:
         GITHUB_TOKEN: ${{ secrets.HOMEBREW }}

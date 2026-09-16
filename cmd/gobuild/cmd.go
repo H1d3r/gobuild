@@ -32,8 +32,14 @@ func Exec() error {
 
 	usage := p.Sprintf("cmd.usage %s %s", license, url)
 
-	o := cmdopt.New(os.Stdout, flag.ExitOnError, usage, nil, func(s string) string {
-		return localeutil.Phrase("未找到子命令 %s").LocaleString(p)
+	o := cmdopt.New(&cmdopt.Options{
+		Name:          "gobuild",
+		Output:        os.Stdout,
+		ErrorHandling: flag.ExitOnError,
+		UsageTemplate: usage,
+		NotFound: func(s string) string {
+			return localeutil.Phrase("未找到子命令 %s").LocaleString(p)
+		},
 	})
 
 	initVersion(o, p)
